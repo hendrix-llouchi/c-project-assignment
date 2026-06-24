@@ -17,7 +17,7 @@ namespace StudentResultsSystem
                 Console.WriteLine("3. Exit");
                 Console.Write("Choose an option: ");
                 
-                string option = Console.ReadLine();
+                string? option = Console.ReadLine();
                 Console.WriteLine(); // spacing
 
                 if (option == "1")
@@ -45,16 +45,16 @@ namespace StudentResultsSystem
             Console.WriteLine($"Enter details for Student {studentNum}");
 
             Console.Write("Name: ");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine() ?? "";
 
             Console.Write("Student ID: ");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine() ?? "";
 
             Console.Write("Programme: ");
-            string programme = Console.ReadLine();
+            string programme = Console.ReadLine() ?? "";
 
             Console.Write("Level: ");
-            string levelInput = Console.ReadLine();
+            string levelInput = Console.ReadLine() ?? "";
             int level = int.TryParse(levelInput, out int l) ? l : 100;
 
             int[] courses = new int[5];
@@ -125,6 +125,8 @@ namespace StudentResultsSystem
             Programme = programme;
             Level = level;
             Courses = courses;
+            Grade = "";
+            Status = "";
             CalculateResults();
         }
 
